@@ -9,6 +9,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
+        <script src="{{url('js/app.js')}}"></script>
 
         <!-- Styles -->
         <style>
@@ -77,19 +79,33 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table" style="color:#000;font-weight:normal">
+                            <thead>
+                                <tr>
+                                    <th>Название</th>
+                                    <th>Автор</th>
+                                    <th>Стоимсоть</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($books as $book)
+                                <tr>
+                                    <td>{{$book->name}}</td>
+                                    <td>{{$book->user->name}}({{$book->user->books->count()}} Книг)</td>
+                                    <td>{{$book->price}}</td>
+                                </tr>
+                            @endforeach    
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-right">
+                        <a href="{{route('books.create')}}" class="btn btn-primary">Добавить</a>
+                    </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </body>
 </html>
