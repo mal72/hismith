@@ -42,18 +42,8 @@ class BookController extends Controller
     {
         $this->req($request);
         \Auth::user()->books()->create($request->all());
+        \Auth::user()->increment('bookcount');
         return redirect()->route('books.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Book $book)
-    {
-        //
     }
 
     /**
@@ -82,17 +72,6 @@ class BookController extends Controller
         $this->req($request);
         $book->update($request->all());
         return redirect()->route('books.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Book $book)
-    {
-        //
     }
 
     private function req(Request $request)

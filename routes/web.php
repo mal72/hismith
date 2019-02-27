@@ -17,4 +17,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('books', 'Admin\BookController')->middleware('auth');
+Route::resource('books', 'Admin\BookController')->except(['show','destroy'])->middleware('auth');
+
+Route::resource('users', 'Admin\UserController')->except(['show','destroy'])->middleware('auth');

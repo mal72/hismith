@@ -12,18 +12,20 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        if (User::whereEmail("adad@mail.ru")->first() == NULL){
+        if (User::whereEmail("admin@mail.ru")->first() == NULL){
             User::create([
-                "email" => "adad@mail.ru",
-                "name" => "Пушкин А.С.",
+                "email" => "admin@mail.ru",
+                "name" => "admin",
                 "password" => bcrypt("qwerty"),
+                "fullname" => "Пушкин А.С.",
             ]);
         }
-        if (User::whereEmail("btest@mail.ru")->first() == NULL){
+        if (User::whereEmail("author@mail.ru")->first() == NULL){
             User::create([
-                "email" => "btest@mail.ru",
-                "name" => "Булгаков М.А.",
+                "email" => "author@mail.ru",
+                "name" => "author",
                 "password" => bcrypt("qwerty"),
+                "fullname" => "Булгаков М.А.",
             ]);
         }
     }

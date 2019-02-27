@@ -94,7 +94,7 @@
                             @foreach($books as $book)
                                 <tr>
                                     <td>{{$book->name}}</td>
-                                    <td>{{$book->user->name}}({{$book->user->books->count()}} Книг)</td>
+                                    <td>{{$book->user->fullname}}</td>
                                     <td>{{$book->price}}</td>
                                 </tr>
                             @endforeach    

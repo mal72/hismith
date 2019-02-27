@@ -16,7 +16,7 @@
                     @foreach($books as $book)
                         <tr>
                             <td><a href="{{route('books.edit', $book)}}">{{$book->name}}</a></td>
-                            <td>{{$book->user->name}}</td>
+                            <td>{{$book->user->fullname}}</td>
                             <td>{{$book->price}}</td>
                         </tr>
                     @endforeach    
